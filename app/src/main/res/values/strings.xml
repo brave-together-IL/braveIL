@@ -16,4 +16,9 @@
     <string name="resign">להרשם מחדש</string>
     <string name="phone_no">Phone no.</string>
     <string name="id">ID</string>
+    <!-- Strings related to admin -->
+    <string name="back_to_menu">חזרה לתפריט ראשי</string>
+    <string name="add_volunteer">הוספת מתנדב</string>
+    <string name="admin_welcome_message">שלום, Admin</string>
+    <string name="add_survivor">הוספת ניצול</string>
 </resources>
