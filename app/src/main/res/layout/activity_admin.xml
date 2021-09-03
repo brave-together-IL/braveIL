@@ -36,11 +36,11 @@
         android:id="@+id/textView4"
         android:layout_width="236dp"
         android:layout_height="65dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="164dp"
         android:text="@string/admin_welcome_message"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
