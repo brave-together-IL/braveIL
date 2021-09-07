@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.preference.Preference;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -29,6 +30,8 @@ import android.widget.Toast;
 
 import com.brave.registration.regist.app.MainActivity;
 import com.brave.registration.regist.app.R;
+import com.brave.registration.regist.app.services.ApiService;
+import com.brave.registration.regist.app.services.RetrofitService;
 import com.brave.registration.regist.app.ui.login.LoginViewModel;
 import com.brave.registration.regist.app.ui.login.LoginViewModelFactory;
 
@@ -133,24 +136,26 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                loadingProgressBar.setVisibility(View.VISIBLE);
-                loginViewModel.login(usernameEditText.getText().toString(),
-                        passwordEditText.getText().toString());
-                String id = usernameEditText.getText().toString();
-                String phone = passwordEditText.getText().toString();
-                hero = new User(id, phone);
-                SharedPreferences preferences_2 = getSharedPreferences("Data", MODE_PRIVATE);
-                SharedPreferences.Editor editor_2 = preferences_2.edit();
-                SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("remember", "true");
-                editor.apply();
-                editor_2.putString("id", hero.id);
-                editor_2.putString("number", hero.phone_num);
-                editor_2.apply();
-
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                Log.d("Tag", "Login");
+//                com.brave.registration.regist.app.model.User user = new com.brave.registration.regist.app.model.User(1, "test@a.com", "passspasss", "cell", "first", "last");
+                ApiService.getUser(1);
+//                loadingProgressBar.setVisibility(View.VISIBLE);
+//                loginViewModel.login(usernameEditText.getText().toString(),
+//                        passwordEditText.getText().toString());
+//                String id = usernameEditText.getText().toString();
+//                String phone = passwordEditText.getText().toString();
+//                hero = new User(id, phone);
+//                SharedPreferences preferences_2 = getSharedPreferences("Data", MODE_PRIVATE);
+//                SharedPreferences.Editor editor_2 = preferences_2.edit();
+//                SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
+//                SharedPreferences.Editor editor = preferences.edit();
+//                editor.putString("remember", "true");
+//                editor.apply();
+//                editor_2.putString("id", hero.id);
+//                editor_2.putString("number", hero.phone_num);
+//                editor_2.apply();
+//
+//                startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
             }
         });
