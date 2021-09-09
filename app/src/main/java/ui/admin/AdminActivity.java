@@ -19,9 +19,6 @@ public class AdminActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.thetoolbar);
-        setSupportActionBar(toolbar);
-
         final Button add_survivor = (Button) findViewById(R.id.survivor_btn);
         add_survivor.setOnClickListener(new View.OnClickListener() {
             @Override
