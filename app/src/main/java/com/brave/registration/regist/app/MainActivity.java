@@ -1,5 +1,5 @@
 package com.brave.registration.regist.app;
-
+import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -32,7 +32,10 @@ public class MainActivity extends AppCompatActivity {
         delivery = (ImageButton) findViewById(R.id.deliveryButton);
         meeting = (ImageButton) findViewById(R.id.meetingButton);
         call = (ImageButton) findViewById(R.id.callButton);
-//        newly= (Button) findViewById(R.id.button);
+//      newly= (Button) findViewById(R.id.button);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.thetoolbar);
+        setSupportActionBar(toolbar);
+
         SharedPreferences preferences_2 = getSharedPreferences("Data", MODE_PRIVATE);
         ID = preferences_2.getString("id", ""); /*The ID of the HERO*/
         phone = preferences_2.getString("number", ""); /*The phone no. of the HERO*/

@@ -12,7 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.braveIL">
         <activity
-            android:name=".Register_admin"
+            android:name="ui.admin.AdminActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ui.admin.Register_admin"
             android:exported="true" />
         <activity android:name=".MainActivity" />
         <activity

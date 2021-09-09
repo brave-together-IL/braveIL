@@ -12,7 +12,6 @@
     <string name="red_b">red_b</string>
     <string name="green_b">green_b</string>
     <string name="yellow_b">yellow_b</string>
-    <string name="bravetogether">מצעד הגבורה</string>
     <string name="resign">התנתקות</string>
     <string name="phone_no">Phone no.</string>
     <string name="id">ID</string>
@@ -22,4 +21,10 @@
     <string name="admin_welcome_message">שלום, Admin</string>
     <string name="add_survivor">הוספת גיבור</string>
     <string name="id_hero">Id hero</string>
+    <string name="braveil">BraveIL - מצעד הגבורה</string>
+    <string name="manage_volunteer_btn">ניהול רשימת מתנדבים</string>
+    <string name="add_moderators">הוספת מודרייטורים</string>
+    <string name="title_activity_admin">Admin</string>
+    <string name="second_fragment_label">frag</string>
+    <string name="first_fragment_label">frag1</string>
 </resources>

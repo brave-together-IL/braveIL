@@ -5,8 +5,10 @@
     android:background="@drawable/blue_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Register_admin" >
-
+    tools:context="ui.admin.Register_admin" >
+    <include
+        android:id="@+id/thetoolbar"
+        layout="@layout/toolbar" />
     <ImageView
         android:id="@+id/image_view2"
         android:layout_width="92dp"
