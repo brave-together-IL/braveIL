@@ -8,7 +8,7 @@
     tools:context=".Register_admin" >
 
     <ImageView
-        android:id="@+id/image_view2"
+        android:id="@+id/imgRegisterLogo"
         android:layout_width="92dp"
         android:layout_height="137dp"
         android:layout_marginTop="64dp"

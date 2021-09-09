@@ -5,6 +5,8 @@ import android.util.Log;
 import com.brave.registration.regist.app.model.User;
 import com.brave.registration.regist.app.utils.BraveApi;
 
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -48,7 +50,11 @@ public class ApiService {
                     User user = response.body();
                     Log.v("Tag", "the response " + user );
                 } else {
-                    Log.v("Tag", "Error " + response.errorBody().toString());
+                    try {
+                        Log.v("Tag", "Error " + response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
 
