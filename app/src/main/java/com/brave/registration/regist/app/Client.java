@@ -171,8 +171,8 @@ public class Client {
 
 
 
-    public static void main(String[] args) throws IOException, JSONException {
-        Client client = new Client();
-        client.createEvent(new String[]{"waiting"}, "title", "desc", "", "", 0, "מרכז");
-    }
+//    public static void main(String[] args) throws IOException, JSONException {
+//        Client client = new Client();
+//        client.createEvent(new String[]{"waiting"}, "title", "desc", "", "", 0, "מרכז");
+//    }
 }
