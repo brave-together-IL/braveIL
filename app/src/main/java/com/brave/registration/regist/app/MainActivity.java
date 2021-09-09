@@ -24,8 +24,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        id_1=(TextView) findViewById(R.id.textView2);
-        phone_1=(TextView) findViewById(R.id.textView3);
         yellow = (ImageButton) findViewById(R.id.imageButton2);
         red = (ImageButton) findViewById(R.id.imageButton);
         green = (ImageButton) findViewById(R.id.imageButton3);
@@ -33,8 +31,6 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences preferences_2 = getSharedPreferences("Data", MODE_PRIVATE);
         ID = preferences_2.getString("id", ""); /*The ID of the HERO*/
         phone = preferences_2.getString("number", ""); /*The phone no. of the HERO*/
-        id_1.setText("ID: " + ID);
-        phone_1.setText("No: " + phone);
         yellow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -13,13 +13,13 @@
     <string name="green_b">green_b</string>
     <string name="yellow_b">yellow_b</string>
     <string name="bravetogether">מצעד הגבורה</string>
-    <string name="resign">להרשם מחדש</string>
+    <string name="resign">התנתקות</string>
     <string name="phone_no">Phone no.</string>
     <string name="id">ID</string>
     <!-- Strings related to admin -->
     <string name="back_to_menu">חזרה לתפריט ראשי</string>
     <string name="add_volunteer">הוספת מתנדב</string>
     <string name="admin_welcome_message">שלום, Admin</string>
-    <string name="add_survivor">הוספת ניצול</string>
+    <string name="add_survivor">הוספת גיבור</string>
     <string name="id_hero">Id hero</string>
 </resources>
