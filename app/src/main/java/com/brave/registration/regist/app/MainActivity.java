@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     String ID, phone;
     Button newly;
     ImageButton yellow,green,red;
+    Client client;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,12 +32,20 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences preferences_2 = getSharedPreferences("Data", MODE_PRIVATE);
         ID = preferences_2.getString("id", ""); /*The ID of the HERO*/
         phone = preferences_2.getString("number", ""); /*The phone no. of the HERO*/
+        client = new Client();
+        try{
+            client.refreshToken();
+        }catch(Exception e){e.printStackTrace();}
         yellow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "הודעתך נשלחה", Toast.LENGTH_SHORT).show(); /* if the message was sent properly*/
-                String message_text = "שלום מתנדבים יקרים!" + "%0A" + "אודה לעזרתכם עם מספר סידורים :)" + "%0A" + "אשמח אם תוכלו לחזור אליי לנייד: " + phone;
-                sendTelegramMessage(ID,message_text);
+//                Toast.makeText(MainActivity.this, "הודעתך נשלחה", Toast.LENGTH_LONG).show(); /* if the message was sent properly*/
+//                String message_text  ="שלום מתנדבים יקרים!" + "%0A" + "אודה לעזרתכם עם מספר סידורים :)" + "%0A" + "אשמח אם תוכלו לחזור אליי לנייד: " + phone;
+//                sendTelegramMessage(ID,message_text);
+                try {
+                    client.createEvent(new String[]{"waiting"}, "סידורים", "התנדבות חדשה", "", "", 0, "");
+                }catch(Exception e){e.printStackTrace();}
+
             }
 
         });
