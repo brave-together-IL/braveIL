@@ -20,8 +20,6 @@ public class Register_admin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_admin);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.thetoolbar);
-        setSupportActionBar(toolbar);
 
         String str_username =((EditText)findViewById(R.id.user_name_input)).getText().toString();
         String str_id =((EditText)findViewById(R.id.user_name_input)).getText().toString();
