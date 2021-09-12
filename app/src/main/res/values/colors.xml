@@ -16,4 +16,6 @@
     <color name="main_blue_2">#0D68B1</color>
     <color name="main_blue_3">#334FED</color>
     <color name="toolbar_color">#2B5FFB</color>
+    <color name="BackgroundWhiteColor">#FBFCFC</color>
+
 </resources>

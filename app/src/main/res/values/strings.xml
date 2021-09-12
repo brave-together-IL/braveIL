@@ -19,7 +19,7 @@
     <string name="back_to_menu">חזרה לתפריט ראשי</string>
     <string name="add_volunteer">הוספת מתנדב</string>
     <string name="admin_welcome_message">שלום, Admin</string>
-    <string name="add_survivor">הוספת גיבור</string>
+    <string name="add_survivor">הזנת גיבור/ה חדש/ה</string>
     <string name="id_hero">Id hero</string>
     <string name="braveil">BraveIL - מצעד הגבורה</string>
     <string name="manage_volunteer_btn">ניהול רשימת מתנדבים</string>
@@ -27,4 +27,10 @@
     <string name="title_activity_admin">Admin</string>
     <string name="second_fragment_label">frag</string>
     <string name="first_fragment_label">frag1</string>
+    <string name="password">password</string>
+    <string name="name">Name</string>
+    <string name="send">אישור</string>
+    <string name="username">שם משתמש:</string>
+    <string name="new_mod">הוספת מודרייטור חדש</string>
+    <string name="idlogin">תעודת זהות</string>
 </resources>

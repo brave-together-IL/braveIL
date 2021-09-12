@@ -1,7 +1,6 @@
 package ui.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +8,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.brave.registration.regist.app.R;
-
-import ui.admin.Register_admin;
 
 public class AdminActivity extends AppCompatActivity {
 
@@ -26,11 +23,24 @@ public class AdminActivity extends AppCompatActivity {
                 add_survivor();
             }
         });
+        final Button add_moderators = (Button) findViewById(R.id.moderator_btn);
+        add_moderators.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                add_moderators();
+            }
+        });
 
     }
 
     private void add_survivor() {
         Intent intent = new Intent(this, Register_admin.class);
+        startActivity(intent);
+    }
+
+
+    private void add_moderators() {
+        Intent intent = new Intent(this, Register_moderator.class);
         startActivity(intent);
     }
 

@@ -97,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+
+
 //        newly.setOnClickListener(new View.OnClickListener() { /* resign in*/
 //            @Override
 //            public void onClick(View v) {
