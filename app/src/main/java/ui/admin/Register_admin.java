@@ -27,7 +27,7 @@ public class Register_admin extends AppCompatActivity {
         String str_id =((EditText)findViewById(R.id.user_name_input)).getText().toString();
     }
     public void back_homepage(View view){
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        startActivity(new Intent(getApplicationContext(), AdminActivity.class));
     }
 
 }

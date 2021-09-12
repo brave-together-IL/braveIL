@@ -3,27 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/alonp/AndroidStudioProjects/BraveTogetherApp/app/src/main/res/layout/activity_admin.xml" value="0.33" />
         <entry key="..\:/Users/alonp/AndroidStudioProjects/BraveTogetherApp/app/src/main/res/layout/activity_login.xml" value="0.28940217391304346" />
         <entry key="..\:/Users/alonp/AndroidStudioProjects/BraveTogetherApp/app/src/main/res/layout/activity_main.xml" value="0.28940217391304346" />
-        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3828125" />
-        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/drawable/button_selector.xml" value="0.2828125" />
-        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
-        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/drawable/round.xml" value="0.3828125" />
-        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout-v21/tool.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout-v21/toolbar.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout/activity_admin.xml" value="0.264" />
-        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout/activity_admin2.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout/activity_main.xml" value="0.26666666666666666" />
-        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout/activity_register_admin.xml" value="0.264" />
-        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout/app_toolbar.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout/fragment_first.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout/fragment_second.xml" value="0.24427083333333333" />
-        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout/header_layout.xml" value="0.264" />
-        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout/sample_toolbar.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout/tool.xml" value="0.264" />
-        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout/toolbar.xml" value="0.264" />
-        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout/toolbar_layout.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/alonp/AndroidStudioProjects/BraveTogetherApp/app/src/main/res/layout/activity_register_admin.xml" value="0.26268115942028986" />
+        <entry key="..\:/Users/natalieky/AndroidStudioProjects/braveIL/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2421875" />
+        <entry key="..\:/Users/natalieky/AndroidStudioProjects/braveIL/app/src/main/res/drawable/ic_launcher_background.xml" value="0.24270833333333333" />
+        <entry key="..\:/Users/natalieky/AndroidStudioProjects/braveIL/app/src/main/res/drawable/round.xml" value="0.2703125" />
+        <entry key="..\:/Users/natalieky/AndroidStudioProjects/braveIL/app/src/main/res/layout/activity_admin.xml" value="0.21105072463768115" />
+        <entry key="..\:/Users/natalieky/AndroidStudioProjects/braveIL/app/src/main/res/layout/activity_login.xml" value="0.2033514492753623" />
+        <entry key="..\:/Users/natalieky/AndroidStudioProjects/braveIL/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/natalieky/AndroidStudioProjects/braveIL/app/src/main/res/layout/activity_register_admin.xml" value="0.264" />
       </map>
     </option>
   </component>
