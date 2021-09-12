@@ -23,5 +23,6 @@
     <string name="add_survivor">הוספת ניצול</string>
     <string name="id_hero">Id hero</string>
     <string name="action_register">הרשמה</string>
-    <string name="propt_pelephone">מספר טלפון</string>
+    <string name="propt_pelephone">פלאפון</string>
+    <string name="cellular">Cellular</string>
 </resources>

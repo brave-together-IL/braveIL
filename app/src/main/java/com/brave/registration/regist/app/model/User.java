@@ -1,6 +1,9 @@
 package com.brave.registration.regist.app.model;
 
-public class User {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class User implements Parcelable {
 
     private int id;
     private String email;
@@ -18,6 +21,27 @@ public class User {
         this.lastName = lastName;
     }
 
+
+    protected User(Parcel in) {
+        id = in.readInt();
+        email = in.readString();
+        password = in.readString();
+        cellphone = in.readString();
+        first_name = in.readString();
+        lastName = in.readString();
+    }
+
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -41,5 +65,20 @@ public class User {
 
     public String getLastName() {
         return lastName;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(email);
+        parcel.writeString(password);
+        parcel.writeString(cellphone);
+        parcel.writeString(first_name);
+        parcel.writeString(lastName);
     }
 }
