@@ -1,8 +1,7 @@
 package com.brave.registration.regist.app;
-import androidx.appcompat.widget.Toolbar;
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
+import static com.brave.registration.regist.app.TelegramHandler.sendTelegramMessage;
+
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -11,8 +10,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.brave.registration.regist.app.ui.login.LoginActivity;
-import static com.brave.registration.regist.app.TelegramHandler.sendTelegramMessage;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
     TextView id_1,phone_1;
@@ -21,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton accompany, meeting, delivery, call;
     Client client;
 
+//    private TokenViewModel tokenViewModel;
 
 
     @Override
@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         phone = preferences_2.getString("number", ""); /*The phone no. of the HERO*/
         client = new Client();
 
+//        initTokenViewModel();
         try{
             client.refreshToken();
         }catch(Exception e){e.printStackTrace();}
@@ -113,6 +114,25 @@ public class MainActivity extends AppCompatActivity {
   //      });
     }
 
-
+//    private void initTokenViewModel() {
+//        tokenViewModel = new ViewModelProvider(this).get(TokenViewModel.class);
+//        observeToken();
+//        String auth = Credentials.basic("one@brave.com", "1234512345");
+//
+//        tokenViewModel.getTokenApi(auth);
+//    }
+//
+//    private void observeToken() {
+//        tokenViewModel.getLDToken().observe(this, new Observer<String>() {
+//            @Override
+//            public void onChanged(String token) {
+//                if ( token == null) {
+//                    Log.v("Token", "Error getting token");
+//                } else {
+//                    Log.v("Tag", "New Token: " + token);
+//                }
+//            }
+//        });
+//    }
 
 }
