@@ -2,6 +2,7 @@ package com.brave.registration.regist.app.utils;
 
 
 
+import com.brave.registration.regist.app.models.SignupUser;
 import com.brave.registration.regist.app.models.User;
 import com.brave.registration.regist.app.response.TokenResponse;
 import com.brave.registration.regist.app.response.UserResponse;
@@ -29,8 +30,8 @@ public interface BraveApi {
 
     @Headers("Content-type: application/json")
     @POST("user")
-    Call<User> saveUser (
-            @Body User user
+    Call<UserResponse> saveUser (
+            @Body SignupUser user
     );
 
     @Headers("Content-type: application/json")

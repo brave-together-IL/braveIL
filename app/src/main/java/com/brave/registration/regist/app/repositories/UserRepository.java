@@ -3,6 +3,8 @@ package com.brave.registration.regist.app.repositories;
 import androidx.lifecycle.LiveData;
 
 import com.brave.registration.regist.app.apiclients.UserApiClient;
+import com.brave.registration.regist.app.models.SignupUser;
+import com.brave.registration.regist.app.models.User;
 import com.brave.registration.regist.app.response.UserResponse;
 
 public class UserRepository {
@@ -27,5 +29,13 @@ public class UserRepository {
 
     public void getUserFromApi(String id) {
         userApiClient.getUser(id);
+    }
+
+    public LiveData<UserResponse> getLDSignupUser() {
+        return userApiClient.getLDSignupUser();
+    }
+
+    public void signupUser(SignupUser user) {
+        userApiClient.signupUser(user);
     }
 }
