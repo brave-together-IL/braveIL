@@ -19,6 +19,15 @@ public class Client {
     }
 
 
+    public String getID(){
+        return "111111111";
+    }
+
+    public String getPhone(){
+        return "0501111111";
+    }
+
+
     public JSONObject findUserByID(String id) throws IOException, JSONException {
         String url = "http://localhost:5000/user/"+id;
         Request request = new Request.Builder()
