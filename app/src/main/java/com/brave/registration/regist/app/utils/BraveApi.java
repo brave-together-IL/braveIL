@@ -4,6 +4,7 @@ package com.brave.registration.regist.app.utils;
 
 import com.brave.registration.regist.app.models.User;
 import com.brave.registration.regist.app.response.TokenResponse;
+import com.brave.registration.regist.app.response.UserResponse;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ public interface BraveApi {
     Call<List<User>> getUsers();
 
     @GET("user/{user_ID}")
-    Call<User> getUser(
+    Call<UserResponse> getUser(
             @Path("user_ID") String user_ID
     );
 

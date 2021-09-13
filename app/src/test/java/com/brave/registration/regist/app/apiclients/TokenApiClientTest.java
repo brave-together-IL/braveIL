@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.brave.registration.regist.app.models.User;
 import com.brave.registration.regist.app.response.TokenResponse;
+import com.brave.registration.regist.app.response.UserResponse;
 import com.brave.registration.regist.app.utils.RetrofitService;
 
 import org.junit.Ignore;
@@ -19,16 +20,15 @@ import retrofit2.Call;
 import retrofit2.Response;
 
 public class TokenApiClientTest {
-
-    @Ignore
     @Test
     public void getUserNotNull() {
-        Call<User> token = RetrofitService.getBraveTestApi()
+        Call<UserResponse> call = RetrofitService.getBraveTestApi()
                 .getUser("1");
 
         try {
-            Response<User> execute = token.execute();
-            assertNotNull(execute);
+            Response<UserResponse> response = call.execute();
+            UserResponse userResponse = response.body();
+            assertEquals(userResponse.getEmail(), "one@brave.com");
         } catch (IOException e) {
             e.printStackTrace();
         }
