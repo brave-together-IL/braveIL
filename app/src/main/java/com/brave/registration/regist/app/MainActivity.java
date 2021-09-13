@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import static com.brave.registration.regist.app.TelegramHandler.sendTelegramMessage;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AlertDialogCustom);
 
             String[] split = getTag().split(",");
             String buttonType = split[0];
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
             String type = split[2];
 
             String dialogMessageFormat = String.format(getString(R.string.dialogMessage), dialogMessage, buttonType);
+
+
 
             builder.setTitle(buttonType)
                     .setIcon(getResources().getIdentifier(type , "drawable", "com.brave.registration.regist.app"))
@@ -153,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
     public void openDialog(String buttonType) {
         HeroDialogs heroDialogs = new HeroDialogs();
         heroDialogs.show(getSupportFragmentManager(), buttonType);
+//        System.out.println("AAA" + heroDialogs.getParentFragmentManager().getFragments());
     }
 
 
