@@ -7,7 +7,7 @@
 
 
     <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="android:textSize">30sp</item>
+        <item name="android:textSize">50sp</item>
     </style>
 
     <attr name="dialogMessageStyle" format="reference"/>

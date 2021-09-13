@@ -46,8 +46,6 @@ public class MainActivity extends AppCompatActivity {
 
             String dialogMessageFormat = String.format(getString(R.string.dialogMessage), dialogMessage, buttonType);
 
-
-
             builder.setTitle(buttonType)
                     .setIcon(getResources().getIdentifier(type , "drawable", "com.brave.registration.regist.app"))
                     .setMessage(dialogMessageFormat)
@@ -155,7 +153,11 @@ public class MainActivity extends AppCompatActivity {
     // this function operates the dialogs
     public void openDialog(String buttonType) {
         HeroDialogs heroDialogs = new HeroDialogs();
-        heroDialogs.show(getSupportFragmentManager(), buttonType);
+        getSupportFragmentManager().beginTransaction().add(heroDialogs, buttonType).commitNow();
+        AlertDialog dialog= (AlertDialog)((HeroDialogs)getSupportFragmentManager().findFragmentByTag(buttonType)).getDialog();
+        ((TextView)dialog.findViewById(android.R.id.message)).setTextSize(30);
+
+//        heroDialogs.show(getSupportFragmentManager(), buttonType);
 //        System.out.println("AAA" + heroDialogs.getParentFragmentManager().getFragments());
     }
 
