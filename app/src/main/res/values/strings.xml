@@ -35,10 +35,10 @@
     <string name="idlogin">תעודת זהות</string>
 
     <!--dialog strings-->
-    <string name="accompany">ליווי,ללוות אותך לסידורים.</string>
-    <string name="call">שיחה,לשוחח איתך בטלפון.</string>
-    <string name="meeting">פגישה,להיפגש איתך.</string>
-    <string name="delivery">איסוף מוצר,לאסוף עבורך תרופות/מצרכים ועוד..</string>
+    <string name="accompany">ליווי,ללוות אותך לסידורים.,accompany</string>
+    <string name="call">שיחה,לשוחח איתך בטלפון.,call</string>
+    <string name="meeting">פגישה,להיפגש איתך.,meeting</string>
+    <string name="delivery">איסוף מוצר,לאסוף עבורך תרופות/מצרכים ועוד..,delivery</string>
     <string name="dialogMessage">תוכל/י לבקש מאחד המתנדבים %1$s\nהאם תרצה/י %2$s?</string>
     <string name="botMessage">שלום מתנדבים יקרים!\n התקבלה בקשה ל%1$s.\nאם את/ה יכול/ה, נא לחץ/י על אישור וצור/צרי קשר עם הגיבור/ה בנייד: %2$s</string>
 

@@ -1,26 +1,82 @@
 package com.brave.registration.regist.app;
-
-import static com.brave.registration.regist.app.TelegramHandler.sendTelegramMessage;
-
+import androidx.appcompat.app.AppCompatDialogFragment;
+import androidx.appcompat.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import static com.brave.registration.regist.app.TelegramHandler.sendTelegramMessage;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+// dialog imports:
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 
 public class MainActivity extends AppCompatActivity {
-    TextView id_1,phone_1;
-    String ID, phone;
+    TextView id_1, phone_1;
+    static String ID, phone;
     Button newly;
     ImageButton accompany, meeting, delivery, call;
-    Client client;
+    static Client client;
 
-//    private TokenViewModel tokenViewModel;
+
+    // this class handle the dialogs in the hero's activity
+    public static class HeroDialogs extends AppCompatDialogFragment {
+
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+            String[] split = getTag().split(",");
+            String buttonType = split[0];
+            String dialogMessage = split[1];
+            String type = split[2];
+
+            String dialogMessageFormat = String.format(getString(R.string.dialogMessage), dialogMessage, buttonType);
+
+            builder.setTitle(buttonType)
+                    .setIcon(getResources().getIdentifier(type , "drawable", "com.brave.registration.regist.app"))
+                    .setMessage(dialogMessageFormat)
+                    .setPositiveButton("כן", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Toast toast = Toast.makeText(getActivity(),"בקשתך\n" + "ל" + buttonType +"\nהתקבלה"  , Toast.LENGTH_LONG); /* if the message was sent properly*/
+                            ViewGroup group = (ViewGroup) toast.getView();
+                            TextView messageTextView = (TextView) group.getChildAt(0);
+                            messageTextView.setTextSize(70);
+                            toast.setGravity(Gravity.CENTER, 0, 0);
+                            toast.show();
+
+                            String message_text = String.format(getString(R.string.botMessage), buttonType, phone);
+                            sendTelegramMessage(ID, message_text);
+                            try {
+                                client.createEvent(new String[]{"waiting", type}, buttonType, "התנדבות חדשה", "", "", 0, "");
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    })
+                    .setNegativeButton("לא", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+
+            return builder.create();
+        }
+    } //end of class HeroDialogs
 
 
     @Override
@@ -41,47 +97,31 @@ public class MainActivity extends AppCompatActivity {
         phone = preferences_2.getString("number", ""); /*The phone no. of the HERO*/
         client = new Client();
 
-//        initTokenViewModel();
-        try{
+        try {
             client.refreshToken();
-        }catch(Exception e){e.printStackTrace();}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         accompany.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "הודעתך נשלחה", Toast.LENGTH_LONG).show(); /* if the message was sent properly*/
-                String message_text  ="שלום מתנדבים יקרים!" + "%0A" + "אצטרך את עזרתכם בליווי :)" + "%0A" + "אשמח אם תוכלו לחזור אליי לנייד: " + phone;
-                sendTelegramMessage(ID,message_text);
-                try {
-                    client.createEvent(new String[]{"waiting","accompany"}, "ליווי", "התנדבות חדשה", "", "", 0, "");
-                }catch(Exception e){e.printStackTrace();}
-
+                openDialog(getString(R.string.accompany));
             }
 
         });
         call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Toast.makeText(MainActivity.this, "הודעתך נשלחה", Toast.LENGTH_SHORT).show();/* if the message was sent properly*/
-                String message_text = "שלום מתנדבים יקרים!" + "%0A" + "אשמח לקיים שיחה טלפונית, אודה לעזרתכם :)" + "%0A" + "מספר הפלאפון שלי: " + phone;
-                sendTelegramMessage(ID,message_text);
-                try {
-                    client.createEvent(new String[]{"waiting","call"}, "שיחה", "התנדבות חדשה", "", "", 0, "");
-                }catch(Exception e){e.printStackTrace();}
-
+                openDialog(getString(R.string.call));
             }
 
         });
         meeting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "הודעתך נשלחה", Toast.LENGTH_SHORT).show(); /* if the message was sent properly*/
-                String message_text = "שלום מתנדבים יקרים!" + "%0A" + "אשמח אם נוכל לקבוע פגישה :)" + "%0A" + "מספר הפלאפון שלי לתיאום הפגישה: " + phone;
-                sendTelegramMessage(ID,message_text);
-                try {
-                    client.createEvent(new String[]{"waiting","meeting"}, "פגישה", "התנדבות חדשה", "", "", 0, "");
-                }catch(Exception e){e.printStackTrace();}}
+                openDialog(getString(R.string.meeting));
+            }
 
         });
 
@@ -89,15 +129,10 @@ public class MainActivity extends AppCompatActivity {
         delivery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "הודעתך נשלחה", Toast.LENGTH_SHORT).show(); /* if the message was sent properly*/
-                String message_text = "שלום מתנדבים יקרים!" + "%0A" + "אשמח לעזרה באיסוף תרופות/מצרכים :)" + "%0A" + "מספר הפלאפון שלי לפרטים נוספים: " + phone;
-                sendTelegramMessage(ID,message_text);
-                try {
-                    client.createEvent(new String[]{"waiting","delivery"}, "איסוף מוצר", "התנדבות חדשה", "", "", 0, "");
-                }catch(Exception e){e.printStackTrace();}}
+                openDialog(getString(R.string.delivery));
+            }
 
         });
-
 
 
 //        newly.setOnClickListener(new View.OnClickListener() { /* resign in*/
@@ -111,28 +146,14 @@ public class MainActivity extends AppCompatActivity {
 //                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
 //            }
 
-  //      });
+        //      });
     }
 
-//    private void initTokenViewModel() {
-//        tokenViewModel = new ViewModelProvider(this).get(TokenViewModel.class);
-//        observeToken();
-//        String auth = Credentials.basic("one@brave.com", "1234512345");
-//
-//        tokenViewModel.getTokenApi(auth);
-//    }
-//
-//    private void observeToken() {
-//        tokenViewModel.getLDToken().observe(this, new Observer<String>() {
-//            @Override
-//            public void onChanged(String token) {
-//                if ( token == null) {
-//                    Log.v("Token", "Error getting token");
-//                } else {
-//                    Log.v("Tag", "New Token: " + token);
-//                }
-//            }
-//        });
-//    }
+    // this function operates the dialogs
+    public void openDialog(String buttonType) {
+        HeroDialogs heroDialogs = new HeroDialogs();
+        heroDialogs.show(getSupportFragmentManager(), buttonType);
+    }
+
 
 }
