@@ -22,7 +22,10 @@ public class Register_admin extends AppCompatActivity {
 
 
         String str_username =((EditText)findViewById(R.id.user_name_input)).getText().toString();
-        String str_id =((EditText)findViewById(R.id.user_name_input)).getText().toString();
+        String str_birthday =((EditText)findViewById(R.id.user_birthday)).getText().toString();
+        String str_id = ((EditText)findViewById(R.id.user_id_input)).getText().toString();
+        String str_phone = ((EditText)findViewById(R.id.user_phone)).getText().toString();
+
     }
     public void back_homepage(View view){
         startActivity(new Intent(getApplicationContext(), AdminActivity.class));
