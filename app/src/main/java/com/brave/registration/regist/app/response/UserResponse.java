@@ -16,6 +16,8 @@ public class UserResponse {
 
     private String cellphone;
 
+    private String password;
+
     public String getId() {
         return id;
     }
@@ -36,6 +38,7 @@ public class UserResponse {
         return cellphone;
     }
 
+    public String getPassword() { return password;}
     @Override
     public String toString() {
         return "UserResponse{" +
