@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import androidx.lifecycle.LiveData;
 
 import com.brave.registration.regist.app.apiclients.UserApiClient;
+import com.brave.registration.regist.app.apiclients.UserApiDBClient;
 import com.brave.registration.regist.app.db.BraveDatabase;
 import com.brave.registration.regist.app.db.dao.UserDao;
 import com.brave.registration.regist.app.db.entities.User;
@@ -15,18 +16,34 @@ import com.brave.registration.regist.app.response.UserResponse;
 import java.util.List;
 
 public class UserRepository {
-    private UserDao userDao;
-    private LiveData<List<User>> allUsers;
+    private static UserRepository instance;
+
+    private UserApiDBClient userApiDBClient;
+
+    UserDao userDao;
+    LiveData<List<User>> allUsers;
 
     public UserRepository(Application application) {
-        BraveDatabase database = BraveDatabase.getInstance(application);
-        userDao = database.userDao();
+        BraveDatabase db = BraveDatabase.getInstance(application);
+        this.userDao = db.userDao();
         allUsers = userDao.getAllUsers();
+        userApiDBClient = userApiDBClient.getInstance(application);
+    }
+
+    public static UserRepository getInstance(Application application) {
+        if ( instance == null) {
+            instance = new UserRepository(application);
+        }
+
+        return instance;
     }
 
     public void insert(User user){
         new InsertUserAsyncTask(userDao).execute(user);
+//        userApiDBClient.insert(user);
     }
+
+    public LiveData<User> getLDUser() { return userApiDBClient.getLDUser();}
 
     public void update(User user){
         new UpdateUserAsyncTask(userDao).execute(user);

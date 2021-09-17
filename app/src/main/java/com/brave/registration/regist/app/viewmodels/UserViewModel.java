@@ -15,10 +15,11 @@ public class UserViewModel extends AndroidViewModel {
 
     private UserRepository repository;
     private LiveData<List<User>> allUsers;
+    private LiveData<User> loggedInUser;
 
     public UserViewModel(@NonNull Application application) {
         super(application);
-        repository = new UserRepository(application);
+        repository = UserRepository.getInstance(application);
         allUsers = repository.getAllusers();
     }
 
@@ -42,5 +43,8 @@ public class UserViewModel extends AndroidViewModel {
         return allUsers;
     }
 
+    public LiveData<User> getLoggedInUser() {
+        return getLoggedInUser();
+    }
 }
 

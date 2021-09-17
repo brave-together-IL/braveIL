@@ -28,4 +28,7 @@ public interface UserDao {
 
     @Query("SELECT * FROM users")
     LiveData<List<User>> getAllUsers();
+
+    @Query("SELECT * FROM users WHERE email LIKE :email AND " + "phone LIKE :phone LIMIT 1")
+    LiveData<User> findByCredentials(String email, String phone);
 }
