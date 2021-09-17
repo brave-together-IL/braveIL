@@ -1,41 +1,103 @@
 package com.brave.registration.regist.app.repositories;
 
+import android.app.Application;
+import android.os.AsyncTask;
+
 import androidx.lifecycle.LiveData;
 
 import com.brave.registration.regist.app.apiclients.UserApiClient;
+import com.brave.registration.regist.app.db.BraveDatabase;
+import com.brave.registration.regist.app.db.dao.UserDao;
+import com.brave.registration.regist.app.db.entities.User;
 import com.brave.registration.regist.app.models.SignupUser;
-import com.brave.registration.regist.app.models.User;
 import com.brave.registration.regist.app.response.UserResponse;
 
+import java.util.List;
+
 public class UserRepository {
-    private static UserRepository instance;
+    private UserDao userDao;
+    private LiveData<List<User>> allUsers;
 
-    private UserApiClient userApiClient;
+    public UserRepository(Application application) {
+        BraveDatabase database = BraveDatabase.getInstance(application);
+        userDao = database.userDao();
+        allUsers = userDao.getAllUsers();
+    }
 
-    public static UserRepository getInstance() {
-        if ( instance == null) {
-            instance = new UserRepository();
+    public void insert(User user){
+        new InsertUserAsyncTask(userDao).execute(user);
+    }
+
+    public void update(User user){
+        new UpdateUserAsyncTask(userDao).execute(user);
+    }
+
+    public void delete(User user){
+        new DeleteUserAsyncTask(userDao).execute(user);
+    }
+
+    public void deleteAllUsers(){
+        new DeleteAllUsersAsyncTask(userDao).execute();
+    }
+
+    public LiveData<List<User>> getAllusers() {
+        return allUsers;
+    }
+
+    private static class InsertUserAsyncTask extends AsyncTask<User, Void, Void> {
+        private UserDao userDao;
+
+        private InsertUserAsyncTask(UserDao userDao) {
+            this.userDao = userDao;
         }
-        return instance;
+
+        @Override
+        protected Void doInBackground(User... users) {
+            userDao.insert(users[0]);
+            return null;
+        }
     }
 
-    private UserRepository() {
-        userApiClient = UserApiClient.getInstance();
+
+    private static class UpdateUserAsyncTask extends AsyncTask<User, Void, Void> {
+        private UserDao userDao;
+
+        private UpdateUserAsyncTask(UserDao userDao) {
+            this.userDao = userDao;
+        }
+
+        @Override
+        protected Void doInBackground(User... users) {
+            userDao.update(users[0]);
+            return null;
+        }
     }
 
-    public LiveData<UserResponse> getLDUser() {
-        return userApiClient.getLDUser();
+    private static class DeleteUserAsyncTask extends AsyncTask<User, Void, Void> {
+        private UserDao userDao;
+
+        private DeleteUserAsyncTask(UserDao userDao) {
+            this.userDao = userDao;
+        }
+
+        @Override
+        protected Void doInBackground(User... users) {
+            userDao.delete(users[0]);
+            return null;
+        }
     }
 
-    public void getUserFromApi(String id) {
-        userApiClient.getUser(id);
-    }
+    private static class DeleteAllUsersAsyncTask extends AsyncTask<Void, Void, Void> {
+        private UserDao userDao;
 
-    public LiveData<UserResponse> getLDSignupUser() {
-        return userApiClient.getLDSignupUser();
-    }
+        private DeleteAllUsersAsyncTask(UserDao userDao) {
+            this.userDao = userDao;
+        }
 
-    public void signupUser(SignupUser user) {
-        userApiClient.signupUser(user);
+        @Override
+        protected Void doInBackground(Void... voids) {
+            userDao.deleteAllUsers();
+            return null;
+        }
     }
 }

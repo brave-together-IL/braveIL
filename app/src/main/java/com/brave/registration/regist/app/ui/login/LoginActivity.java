@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.preference.Preference;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -31,14 +32,19 @@ import com.brave.registration.regist.app.MainActivity;
 import com.brave.registration.regist.app.R;
 import com.brave.registration.regist.app.ui.login.LoginViewModel;
 import com.brave.registration.regist.app.ui.login.LoginViewModelFactory;
+import com.brave.registration.regist.app.viewmodels.UserViewModel;
+
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private static final String TAG = LoginActivity.class.getSimpleName();
     User hero;
 
 
     private LoginViewModel loginViewModel;
 
+    private UserViewModel userViewModel;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -155,8 +161,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
-
+        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
+        observeAllUsers();
     }
 
 
@@ -171,7 +177,14 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
 
-
+    private void observeAllUsers() {
+        userViewModel.getAllUsers().observe(this, new Observer<List<com.brave.registration.regist.app.db.entities.User>>() {
+            @Override
+            public void onChanged(List<com.brave.registration.regist.app.db.entities.User> users) {
+                Log.v(TAG, users.toString());
+            }
+        });
+    }
 
 
 }

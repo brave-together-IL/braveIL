@@ -1,17 +1,46 @@
 package com.brave.registration.regist.app.viewmodels;
 
+import android.app.Application;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModel;
 
+import com.brave.registration.regist.app.db.entities.User;
 import com.brave.registration.regist.app.repositories.UserRepository;
-import com.brave.registration.regist.app.response.UserResponse;
 
-public class UserViewModel extends ViewModel {
-    private UserRepository userRepository;
+import java.util.List;
 
-    public UserViewModel() {
-        userRepository = UserRepository.getInstance();
+public class UserViewModel extends AndroidViewModel {
+
+    private UserRepository repository;
+    private LiveData<List<User>> allUsers;
+
+    public UserViewModel(@NonNull Application application) {
+        super(application);
+        repository = new UserRepository(application);
+        allUsers = repository.getAllusers();
     }
 
-    public LiveData<UserResponse> getLDUser() { return userRepository.getLDUser();}
+    public void insert(User user) {
+        repository.insert(user);
+    }
+
+    public void update(User user) {
+        repository.update(user);
+    }
+
+    public void delete(User user) {
+        repository.insert(user);
+    }
+
+    public void deleteAllUsers() {
+        repository.deleteAllUsers();
+    }
+
+    public LiveData<List<User>> getAllUsers() {
+        return allUsers;
+    }
+
 }
+
