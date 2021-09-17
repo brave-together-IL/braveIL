@@ -21,7 +21,7 @@
         android:layout_marginEnd="24dp"
         android:hint="@string/idlogin"
         android:textColorHint="@color/gray_600"
-        android:inputType="textEmailAddress|numberPassword"
+        android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

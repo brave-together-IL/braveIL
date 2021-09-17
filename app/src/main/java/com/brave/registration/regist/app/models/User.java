@@ -3,16 +3,22 @@ package com.brave.registration.regist.app.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.brave.registration.regist.app.response.UserResponse;
+
 public class User implements Parcelable {
 
-    private int id;
+    private String id;
     private String email;
     private String password;
     private String cellphone;
     private String firstName;
     private String lastName;
 
-    public User(int id, String email, String password, String cellphone, String firstName, String lastName) {
+    public User(UserResponse userResponse) {
+        this(userResponse.getId(), userResponse.getEmail(), userResponse.getPassword(), userResponse.getCellphone(), userResponse.getFirstName(), userResponse.getLastName());
+    }
+
+    public User(String id, String email, String password, String cellphone, String firstName, String lastName) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -22,7 +28,7 @@ public class User implements Parcelable {
     }
 
     protected User(Parcel in) {
-        id = in.readInt();
+        id = in.readString();
         email = in.readString();
         password = in.readString();
         cellphone = in.readString();
@@ -42,7 +48,7 @@ public class User implements Parcelable {
         }
     };
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -73,7 +79,7 @@ public class User implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
+        dest.writeString(id);
         dest.writeString(email);
         dest.writeString(password);
         dest.writeString(cellphone);

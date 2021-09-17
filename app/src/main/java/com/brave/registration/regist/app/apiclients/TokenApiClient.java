@@ -5,7 +5,9 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.brave.registration.regist.app.MainActivity;
 import com.brave.registration.regist.app.response.TokenResponse;
+import com.brave.registration.regist.app.utils.API_MODE;
 import com.brave.registration.regist.app.utils.AppExecutors;
 import com.brave.registration.regist.app.utils.RetrofitService;
 
@@ -68,6 +70,9 @@ public class TokenApiClient {
 
          @Override
          public void run() {
+            if (MainActivity.apiMode == API_MODE.DEV_MOCK) {
+                ldToken.postValue("mockToken");
+            }
             try {
                 if ( cancelRequest) {
                     return;

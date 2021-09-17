@@ -37,4 +37,8 @@ public interface BraveApi {
     @Headers("Content-type: application/json")
     @GET("token")
     Call<TokenResponse> getToken(@Header("Authorization") String auth);
+
+    //TODO
+    @GET("user/login")
+    Call<UserResponse> login(String user, String password);
 }

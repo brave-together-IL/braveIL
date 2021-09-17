@@ -1,26 +1,30 @@
 package com.brave.registration.regist.app;
-import androidx.appcompat.app.AppCompatDialogFragment;
-import androidx.appcompat.widget.Toolbar;
-import androidx.appcompat.app.AppCompatActivity;
+
+import static com.brave.registration.regist.app.TelegramHandler.sendTelegramMessage;
+
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-import static com.brave.registration.regist.app.TelegramHandler.sendTelegramMessage;
 
-// dialog imports:
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDialogFragment;
+import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.brave.registration.regist.app.utils.API_MODE;
+import com.brave.registration.regist.app.viewmodels.TokenViewModel;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
     ImageButton accompany, meeting, delivery, call;
     static Client client;
 
+    TokenViewModel tokenViewModel;
+    String token;
+
+    public static API_MODE apiMode = API_MODE.DEV_MOCK;
 
     // this class handle the dialogs in the hero's activity
     public static class HeroDialogs extends AppCompatDialogFragment {
@@ -96,13 +104,14 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences preferences_2 = getSharedPreferences("Data", MODE_PRIVATE);
         ID = preferences_2.getString("id", ""); /*The ID of the HERO*/
         phone = preferences_2.getString("number", ""); /*The phone no. of the HERO*/
-        client = new Client();
+//        client = new Client();
+//
+//        try {
+//            client.refreshToken();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
-        try {
-            client.refreshToken();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         accompany.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,6 +144,10 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        initTokenViewModel();
+
+        tokenViewModel.getTokenApi(getAuth());
+
 
 //        newly.setOnClickListener(new View.OnClickListener() { /* resign in*/
 //            @Override
@@ -161,5 +174,22 @@ public class MainActivity extends AppCompatActivity {
 //        System.out.println("AAA" + heroDialogs.getParentFragmentManager().getFragments());
     }
 
+    private void initTokenViewModel() {
+        tokenViewModel = new ViewModelProvider(this).get(TokenViewModel.class);
+        tokenViewModel.getLDToken().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String token) {
+                setToken(token);
+            }
+        });
+    }
 
+    private String getAuth() {
+        String auth = "dummy";
+        return auth;
+    }
+
+    private void setToken(String token) {
+        this.token = token;
+    }
 }
