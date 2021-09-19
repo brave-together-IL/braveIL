@@ -1,7 +1,6 @@
-package ui.admin;
+package com.brave.registration.regist.app.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,8 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.brave.registration.regist.app.Client;
-import com.brave.registration.regist.app.MainActivity;
-import com.brave.registration.regist.app.ui.login.LoginActivity;
 
 import com.brave.registration.regist.app.R;
 

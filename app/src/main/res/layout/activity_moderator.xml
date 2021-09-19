@@ -4,111 +4,121 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/blue_background">
+    android:background="@drawable/background2"
+    android:gravity="center"
+    android:orientation="vertical">
+
 
     <include
         android:id="@+id/thetoolbar"
-        layout="@layout/toolbar"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
-
+        layout="@layout/toolbar" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="76dp"
-        android:layout_height="62dp"
+        android:layout_width="92dp"
+        android:layout_height="137dp"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
         android:rotationX="1"
-        android:src="@drawable/bravetogetherapp"
+        android:src="@drawable/userinconlogin"
+        app:layout_constraintBottom_toTopOf="@+id/username"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/thetoolbar" />
 
     <EditText
-        android:id="@+id/user_name_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="248dp"
-        android:background="@drawable/round"
+        android:id="@+id/username"
+        android:layout_width="309dp"
+        android:layout_height="65dp"
+        android:background="@drawable/shape_fields"
+        android:drawableStart="@drawable/user_icon"
+        android:drawablePadding="5dp"
         android:ems="10"
         android:hint="@string/name"
         android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:textColor="@color/gray_600"
-        android:textColorHint="@color/gray_400"
-        app:layout_constraintBottom_toTopOf="@+id/password_input"
+        android:padding="15dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
-        android:id="@+id/password_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="340dp"
-        android:background="@drawable/round"
+        android:id="@+id/password"
+        android:layout_width="309dp"
+        android:layout_height="65dp"
+        android:background="@drawable/shape_fields"
+        android:drawableStart="@drawable/password_icon"
+        android:drawablePadding="10dp"
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        android:textColorHint="@color/gray_400"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/moderators"
-        android:layout_width="262dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="80dp"
-        android:text="@string/new_mod"
-        android:textAlignment="center"
-        android:textColor="@color/gray_600"
-        android:textSize="22sp"
+        android:padding="15dp"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/sendNewMod"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/username" />
 
     <Button
         android:id="@+id/sendNewMod"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="444dp"
-        android:background="@color/main_blue_1"
+        android:layout_width="307dp"
+        android:layout_height="58dp"
+        android:background="@drawable/shape_buttons"
         android:onClick="submitbuttonHandler"
+        android:padding="16dp"
+        android:shadowColor="@android:color/transparent"
         android:text="@string/send"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/loading"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password"
         tools:ignore="UsingOnClickInXml" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="33dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="248dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.804"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/user_icon" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="34dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="56dp"
+    <Button
+        android:id="@+id/backtohome"
+        android:layout_width="238dp"
+        android:layout_height="58dp"
+        android:background="@drawable/shape_buttons"
+        android:onClick="back_homepage"
+        android:text="@string/back_to_menu"
+        android:textColor="#FFF"
+        android:textSize="16sp"
+        app:backgroundTint="#3F51B5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.803"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/password_icon" />
+        app:layout_constraintTop_toBottomOf="@+id/loading" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/thetoolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/backtohome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sendNewMod" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

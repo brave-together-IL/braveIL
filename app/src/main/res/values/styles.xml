@@ -1,15 +1,14 @@
 <resources>
-
     <style name="Widget.Theme.braveIL.MyView" parent="">
          <item name="android:background">@color/gray_400</item>
-
      </style>
-
-
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    </style>
     <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:textSize">50sp</item>
     </style>
-
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+    </style>
     <attr name="dialogMessageStyle" format="reference"/>
 
 

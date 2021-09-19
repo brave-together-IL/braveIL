@@ -1,4 +1,4 @@
-package ui.admin;
+package com.brave.registration.regist.app.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 

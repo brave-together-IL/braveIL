@@ -2,10 +2,14 @@ package com.brave.registration.regist.app;
 import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -22,6 +26,10 @@ import android.content.DialogInterface;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.brave.registration.regist.app.models.SignupUser;
+import com.brave.registration.regist.app.models.sessionManager;
+import com.brave.registration.regist.app.ui.login.LoginActivity;
+
 
 public class MainActivity extends AppCompatActivity {
     TextView id_1, phone_1;
@@ -29,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     Button newly;
     ImageButton accompany, meeting, delivery, call;
     static Client client;
-
+    Toolbar toolbar;
 
     // this class handle the dialogs in the hero's activity
     public static class HeroDialogs extends AppCompatDialogFragment {
@@ -90,7 +98,8 @@ public class MainActivity extends AppCompatActivity {
         meeting = (ImageButton) findViewById(R.id.meetingButton);
         call = (ImageButton) findViewById(R.id.callButton);
 //      newly= (Button) findViewById(R.id.button);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.thetoolbar);
+        Toolbar toolbar = findViewById(R.id.thetoolbar);
+     //
         setSupportActionBar(toolbar);
 
         SharedPreferences preferences_2 = getSharedPreferences("Data", MODE_PRIVATE);
@@ -134,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+    }
 
 
 //        newly.setOnClickListener(new View.OnClickListener() { /* resign in*/
@@ -148,8 +158,43 @@ public class MainActivity extends AppCompatActivity {
 //            }
 
         //      });
-    }
 
+         @Override
+          public boolean onCreateOptionsMenu(Menu menu) {
+            toolbar = (Toolbar) findViewById(R.id.thetoolbar);
+            toolbar.inflateMenu(R.menu.menu_main);
+            toolbar.setOnMenuItemClickListener(
+                     new Toolbar.OnMenuItemClickListener() {
+                         @Override
+                         public boolean onMenuItemClick(MenuItem item) {
+                             return onOptionsItemSelected(item);
+                         }
+                     });
+              return true;
+          }
+           @Override
+           public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+               if (item.getItemId() == R.id.logout) {
+                   sessionManager.logOut();
+                   return true;
+               }
+               return super.onOptionsItemSelected(item);
+
+               //  int id = item.getItemId();
+                //    if (id == R.id.logout) {
+                //     logout();
+                //       return true;
+                //     }
+                //     return super.onOptionsItemSelected(item);
+                //  }
+                //  private void logout() {
+                // client.logout();
+                //   Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                //    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                //    startActivity(intent);
+                //    finishAffinity();
+                //    }
+            }
     // this function operates the dialogs
     public void openDialog(String buttonType) {
         HeroDialogs heroDialogs = new HeroDialogs();
