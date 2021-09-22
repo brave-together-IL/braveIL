@@ -1,20 +1,16 @@
 package com.brave.registration.regist.app.apiclients;
 
-import static org.junit.Assert.*;
-
-import android.util.Log;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import com.brave.registration.regist.app.models.SignupUser;
-import com.brave.registration.regist.app.models.User;
 import com.brave.registration.regist.app.response.TokenResponse;
 import com.brave.registration.regist.app.response.UserResponse;
 import com.brave.registration.regist.app.utils.RetrofitService;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.List;
 
 import okhttp3.Credentials;
 import retrofit2.Call;

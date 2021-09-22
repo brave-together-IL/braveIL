@@ -1,9 +1,7 @@
 package com.brave.registration.regist.app.utils;
 
-
-
+import com.brave.registration.regist.app.db.entities.User;
 import com.brave.registration.regist.app.models.SignupUser;
-import com.brave.registration.regist.app.models.User;
 import com.brave.registration.regist.app.response.TokenResponse;
 import com.brave.registration.regist.app.response.UserResponse;
 

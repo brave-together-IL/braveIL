@@ -3,8 +3,7 @@ package com.brave.registration.regist.app.repositories;
 import androidx.lifecycle.LiveData;
 
 import com.brave.registration.regist.app.apiclients.LoginApiClient;
-import com.brave.registration.regist.app.models.User;
-import com.brave.registration.regist.app.response.UserResponse;
+import com.brave.registration.regist.app.db.entities.User;
 
 public class LoginRepository {
     private static LoginRepository instance;

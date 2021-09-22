@@ -4,6 +4,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.brave.registration.regist.app.response.UserResponse;
+
 @Entity(tableName="users")
 public class User {
 
@@ -23,6 +25,9 @@ public class User {
         this.lastName = lastName;
         this.phone = phone;
         this.email = email;
+    }
+
+    public User(UserResponse userResponse) {
     }
 
     public void setId(int id) {

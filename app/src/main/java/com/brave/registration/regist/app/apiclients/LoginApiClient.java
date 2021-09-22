@@ -5,12 +5,9 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.brave.registration.regist.app.MainActivity;
-import com.brave.registration.regist.app.mock.MockDB;
-import com.brave.registration.regist.app.models.User;
-import com.brave.registration.regist.app.response.TokenResponse;
+import com.brave.registration.regist.app.db.entities.User;
+
 import com.brave.registration.regist.app.response.UserResponse;
-import com.brave.registration.regist.app.utils.API_MODE;
 import com.brave.registration.regist.app.utils.AppExecutors;
 import com.brave.registration.regist.app.utils.RetrofitService;
 
@@ -21,14 +18,13 @@ import java.util.concurrent.TimeUnit;
 import retrofit2.Call;
 import retrofit2.Response;
 
+
 public class LoginApiClient {
     private static LoginApiClient instance;
 
     private MutableLiveData<User> ldUser;
 
     private LoginApiClient.GetLoginRunnable getLoginRunnable;
-
-    private MockDB mockDB;
 
     public static LoginApiClient getInstance() {
         if ( instance == null) {
@@ -40,9 +36,7 @@ public class LoginApiClient {
     private LoginApiClient() {
 
         this.ldUser = new MutableLiveData<>();
-        if ( MainActivity.apiMode == API_MODE.DEV_MOCK) {
-            mockDB = MockDB.getInstance();
-        }
+
     }
 
     public LiveData<User> getLDUser() {
@@ -81,9 +75,6 @@ public class LoginApiClient {
 
         @Override
         public void run() {
-            if (MainActivity.apiMode == API_MODE.DEV_MOCK) {
-                loginMockUser(user,password);
-            }
             try {
                 if ( cancelRequest) {
                     return;
@@ -104,11 +95,6 @@ public class LoginApiClient {
                 e.printStackTrace();
                 ldUser.postValue(null);
             }
-        }
-
-        private void loginMockUser(String username, String password) {
-            User user = mockDB.login(username, password);
-            ldUser.postValue(user);
         }
 
         private Call<UserResponse> login(String user, String password) {

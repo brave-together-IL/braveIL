@@ -23,7 +23,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.brave.registration.regist.app.utils.API_MODE;
 import com.brave.registration.regist.app.viewmodels.TokenViewModel;
 
 
@@ -37,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     TokenViewModel tokenViewModel;
     String token;
 
-    public static API_MODE apiMode = API_MODE.DEV_MOCK;
 
     // this class handle the dialogs in the hero's activity
     public static class HeroDialogs extends AppCompatDialogFragment {

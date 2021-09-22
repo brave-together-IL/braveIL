@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.brave.registration.regist.app.models.SignupUser;
-import com.brave.registration.regist.app.models.User;
 import com.brave.registration.regist.app.response.UserResponse;
 import com.brave.registration.regist.app.utils.AppExecutors;
 import com.brave.registration.regist.app.utils.RetrofitService;
@@ -17,6 +16,7 @@ import java.util.concurrent.TimeUnit;
 
 import retrofit2.Call;
 import retrofit2.Response;
+
 
 public class UserApiClient {
     private static UserApiClient instance;

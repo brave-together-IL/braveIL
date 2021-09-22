@@ -25,7 +25,6 @@ import androidx.lifecycle.ViewModelProvider;
 import com.brave.registration.regist.app.MainActivity;
 import com.brave.registration.regist.app.R;
 import com.brave.registration.regist.app.db.entities.User;
-import com.brave.registration.regist.app.utils.API_MODE;
 import com.brave.registration.regist.app.viewmodels.UserViewModel;
 
 import java.util.List;
@@ -56,9 +55,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);
-        if ( MainActivity.apiMode == API_MODE.DEV_MOCK) {
-            preferences.edit().clear().commit();
-        }
+
         String checkbox = preferences.getString("remember", "false");
 
         if (checkbox.equals("true")) {

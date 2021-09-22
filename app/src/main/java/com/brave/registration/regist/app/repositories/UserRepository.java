@@ -5,13 +5,10 @@ import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
-import com.brave.registration.regist.app.apiclients.UserApiClient;
 import com.brave.registration.regist.app.apiclients.UserApiDBClient;
 import com.brave.registration.regist.app.db.BraveDatabase;
 import com.brave.registration.regist.app.db.dao.UserDao;
 import com.brave.registration.regist.app.db.entities.User;
-import com.brave.registration.regist.app.models.SignupUser;
-import com.brave.registration.regist.app.response.UserResponse;
 
 import java.util.List;
 
