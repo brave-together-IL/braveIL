@@ -15,6 +15,10 @@
     <string name="resign">התנתקות</string>
     <string name="phone_no">Phone no.</string>
     <string name="id">ID</string>
+    <string name="first_fragment_label">frag</string>
+    <string name="idlogin">תעודת זהות</string>
+    <string name="bdate">תאריך לידה</string>
+
     <!-- Strings related to admin -->
     <string name="back_to_menu">חזרה לתפריט ראשי</string>
     <string name="add_volunteer">הוספת מתנדב</string>
@@ -26,13 +30,12 @@
     <string name="add_moderators">הוספת מודרייטורים</string>
     <string name="title_activity_admin">Admin</string>
     <string name="second_fragment_label">frag</string>
-    <string name="first_fragment_label">frag1</string>
     <string name="password">password</string>
-    <string name="name">Name</string>
-    <string name="send">אישור</string>
-    <string name="username">שם משתמש:</string>
-    <string name="new_mod">הוספת מודרייטור חדש</string>
-    <string name="idlogin">תעודת זהות</string>
+    <string name="name">name</string>
+    <string name="send">הוספת מודרייטור</string>
+    <string name="username">שם משתמש</string>
+    <string name="new_mod">יצירת מודרייטור חדש</string>
+    <string name="logout">התנתקות</string>
 
     <!--dialog strings-->
     <string name="accompany">ליווי,ללוות אותך לסידורים.,accompany</string>
@@ -41,6 +44,5 @@
     <string name="delivery">איסוף מוצר,לאסוף עבורך תרופות/מצרכים ועוד..,delivery</string>
     <string name="dialogMessage">תוכל/י לבקש מאחד המתנדבים %1$s\nהאם תרצה/י %2$s?</string>
     <string name="botMessage">שלום מתנדבים יקרים!\n התקבלה בקשה ל%1$s.\nאם את/ה יכול/ה, נא לחץ/י על אישור וצור/צרי קשר עם הגיבור/ה בנייד: %2$s</string>
-
 
 </resources>
