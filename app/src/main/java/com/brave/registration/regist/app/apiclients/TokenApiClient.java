@@ -70,9 +70,6 @@ public class TokenApiClient {
 
          @Override
          public void run() {
-            if (MainActivity.apiMode == API_MODE.DEV_MOCK) {
-                ldToken.postValue("mockToken");
-            }
             try {
                 if ( cancelRequest) {
                     return;

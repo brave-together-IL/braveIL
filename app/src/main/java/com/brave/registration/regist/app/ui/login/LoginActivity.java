@@ -25,6 +25,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.brave.registration.regist.app.MainActivity;
 import com.brave.registration.regist.app.R;
 import com.brave.registration.regist.app.db.entities.User;
+import com.brave.registration.regist.app.db.entities.UserAndRole;
 import com.brave.registration.regist.app.viewmodels.UserViewModel;
 
 import java.util.List;
@@ -40,8 +41,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginButton;
     private ProgressBar loadingProgressBar;
 
-    UserViewModel userViewModel;
-    private LiveData<User> ldLoggedUser;
+    private UserViewModel userViewModel;
+    private LiveData<UserAndRole> ldLoggedUser;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -107,9 +108,9 @@ public class LoginActivity extends AppCompatActivity {
 
     private void initUserViewModel() {
         userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
-        userViewModel.getAllUsers().observe(this, new Observer<List<User>>() {
+        userViewModel.getAllUsers().observe(this, new Observer<List<UserAndRole>>() {
             @Override
-            public void onChanged(List<User> users) {
+            public void onChanged(List<UserAndRole> users) {
                 Log.v(TAG, users.toString());
             }
         });

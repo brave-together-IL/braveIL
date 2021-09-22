@@ -7,6 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.brave.registration.regist.app.db.entities.User;
+import com.brave.registration.regist.app.db.entities.UserAndRole;
 import com.brave.registration.regist.app.repositories.UserRepository;
 
 import java.util.List;
@@ -14,8 +15,8 @@ import java.util.List;
 public class UserViewModel extends AndroidViewModel {
 
     private UserRepository repository;
-    private LiveData<List<User>> allUsers;
-    private LiveData<User> loggedInUser;
+    private LiveData<List<UserAndRole>> allUsers;
+
 
     public UserViewModel(@NonNull Application application) {
         super(application);
@@ -23,28 +24,11 @@ public class UserViewModel extends AndroidViewModel {
         allUsers = repository.getAllusers();
     }
 
-    public void insert(User user) {
-        repository.insert(user);
-    }
+    public void insert(User user) { repository.insert(user);}
+    public void update(User user) { repository.update(user);}
+    public void delete(User user) { repository.delete(user);}
+    public LiveData<List<UserAndRole>> getAllUsers() { return allUsers;}
 
-    public void update(User user) {
-        repository.update(user);
-    }
 
-    public void delete(User user) {
-        repository.insert(user);
-    }
-
-    public void deleteAllUsers() {
-        repository.deleteAllUsers();
-    }
-
-    public LiveData<List<User>> getAllUsers() {
-        return allUsers;
-    }
-
-    public LiveData<User> getLoggedInUser() {
-        return getLoggedInUser();
-    }
 }
 

@@ -5,9 +5,11 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 
 import com.brave.registration.regist.app.db.entities.User;
+import com.brave.registration.regist.app.db.entities.UserAndRole;
 
 import java.util.List;
 
@@ -23,12 +25,11 @@ public interface UserDao {
     @Delete
     void delete(User user);
 
-    @Query("Delete FROM users")
+    @Query("Delete FROM user_table")
     void deleteAllUsers();
 
-    @Query("SELECT * FROM users")
-    LiveData<List<User>> getAllUsers();
+    @Transaction
+    @Query("SELECT * FROM user_table")
+    LiveData<List<UserAndRole>> getAllUsers();
 
-    @Query("SELECT * FROM users WHERE email LIKE :email AND " + "phone LIKE :phone LIMIT 1")
-    LiveData<User> findByCredentials(String email, String phone);
 }

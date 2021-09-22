@@ -83,8 +83,8 @@ public class LoginApiClient {
                 Response<UserResponse> response = login(user, password).execute();
                 if ( response.code() == 200) {
                     UserResponse userResponse = response.body();
-                    User user = new User(userResponse);
-                    ldUser.postValue(user);
+//                    User user = new User(userResponse);
+//                    ldUser.postValue(user);
                 } else {
                     String error = response.errorBody().string();
                     Log.v("Tag", "Error " + error);

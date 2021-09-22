@@ -17,7 +17,7 @@ import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-import static com.brave.registration.regist.app.TelegramHandler.sendTelegramMessage;
+//import static com.brave.registration.regist.app.TelegramHandler.sendTelegramMessage;
 
 // dialog imports:
 import android.app.AlertDialog;
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                             toast.show();
 
                             String message_text = String.format(getString(R.string.botMessage), buttonType, phone);
-                            sendTelegramMessage(ID, message_text);
+//                            sendTelegramMessage(ID, message_text);
                             try {
                                 client.createEvent(new String[]{"waiting", type}, buttonType, "התנדבות חדשה", "", "", 0, "");
                             } catch (Exception e) {

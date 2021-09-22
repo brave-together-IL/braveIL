@@ -9,7 +9,7 @@ import android.widget.ProgressBar;
 
 import com.brave.registration.regist.app.Client;
 import com.brave.registration.regist.app.R;
-import com.brave.registration.regist.app.ui.login.User;
+//import com.brave.registration.regist.app.ui.login.User;
 import com.google.android.material.textfield.TextInputLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Register_moderator extends AppCompatActivity {
     Button registerMod;
     Client client;
-    User moderator;
+//    User moderator;
     TextInputLayout passwordEditText;
 
 

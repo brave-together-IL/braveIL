@@ -9,29 +9,29 @@ import com.brave.registration.regist.app.apiclients.UserApiDBClient;
 import com.brave.registration.regist.app.db.BraveDatabase;
 import com.brave.registration.regist.app.db.dao.UserDao;
 import com.brave.registration.regist.app.db.entities.User;
+import com.brave.registration.regist.app.db.entities.UserAndRole;
 
 import java.util.List;
 
 public class UserRepository {
     private static UserRepository instance;
-
-    private UserApiDBClient userApiDBClient;
+//
+//    private UserApiDBClient userApiDBClient;
 
     UserDao userDao;
-    LiveData<List<User>> allUsers;
+    LiveData<List<UserAndRole>> allUsers;
 
-    public UserRepository(Application application) {
+    private UserRepository(Application application) {
         BraveDatabase db = BraveDatabase.getInstance(application);
         this.userDao = db.userDao();
         allUsers = userDao.getAllUsers();
-        userApiDBClient = userApiDBClient.getInstance(application);
+//        userApiDBClient = userApiDBClient.getInstance(application);
     }
 
     public static UserRepository getInstance(Application application) {
         if ( instance == null) {
             instance = new UserRepository(application);
         }
-
         return instance;
     }
 
@@ -40,7 +40,7 @@ public class UserRepository {
 //        userApiDBClient.insert(user);
     }
 
-    public LiveData<User> getLDUser() { return userApiDBClient.getLDUser();}
+//    public LiveData<User> getLDUser() { return userApiDBClient.getLDUser();}
 
     public void update(User user){
         new UpdateUserAsyncTask(userDao).execute(user);
@@ -54,7 +54,7 @@ public class UserRepository {
         new DeleteAllUsersAsyncTask(userDao).execute();
     }
 
-    public LiveData<List<User>> getAllusers() {
+    public LiveData<List<UserAndRole>> getAllusers() {
         return allUsers;
     }
 
@@ -71,7 +71,6 @@ public class UserRepository {
             return null;
         }
     }
-
 
     private static class UpdateUserAsyncTask extends AsyncTask<User, Void, Void> {
         private UserDao userDao;

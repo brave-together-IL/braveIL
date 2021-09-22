@@ -6,28 +6,23 @@ import androidx.room.PrimaryKey;
 
 import com.brave.registration.regist.app.response.UserResponse;
 
-@Entity(tableName="users")
+@Entity(tableName="user_table")
 public class User {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    @ColumnInfo(name = "first_name")
-    private String firstName;
-
-    @ColumnInfo(name = "last_name")
-    private String lastName;
-    private String phone;
+    private String name;
     private String email;
+    private String phone;
 
-    public User(String firstName, String lastName, String phone, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phone = phone;
+    private long roleID;
+
+    public User(String name, String email, String phone, long roleID) {
+        this.name = name;
         this.email = email;
-    }
-
-    public User(UserResponse userResponse) {
+        this.phone = phone;
+        this.roleID = roleID;
     }
 
     public void setId(int id) {
@@ -38,30 +33,30 @@ public class User {
         return id;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getPhone() {
-        return phone;
+    public String getName() {
+        return name;
     }
 
     public String getEmail() {
         return email;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public long getRoleID() {
+        return roleID;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phone='" + phone + '\'' +
+                ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", roleID=" + roleID +
                 '}';
     }
 }
