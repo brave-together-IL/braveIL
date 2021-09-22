@@ -30,5 +30,8 @@ public class UserViewModel extends AndroidViewModel {
     public LiveData<List<UserAndRole>> getAllUsers() { return allUsers;}
 
 
+    public LiveData<UserAndRole> login(String email, String phone) {
+        return repository.login(email, phone);
+    }
 }
 

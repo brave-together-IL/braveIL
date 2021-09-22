@@ -32,4 +32,7 @@ public interface UserDao {
     @Query("SELECT * FROM user_table")
     LiveData<List<UserAndRole>> getAllUsers();
 
+    @Transaction
+    @Query("SELECT * FROM user_table WHERE email LIKE :email AND phone LIKE :phone")
+    LiveData<UserAndRole> findUser(String email, String phone);
 }

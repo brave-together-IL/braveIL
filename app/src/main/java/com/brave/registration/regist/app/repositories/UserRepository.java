@@ -58,6 +58,10 @@ public class UserRepository {
         return allUsers;
     }
 
+    public LiveData<UserAndRole> login(String email, String phone) {
+        return userDao.findUser(email, phone);
+    }
+
     private static class InsertUserAsyncTask extends AsyncTask<User, Void, Void> {
         private UserDao userDao;
 

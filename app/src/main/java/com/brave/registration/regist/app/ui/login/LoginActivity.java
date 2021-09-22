@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressBar loadingProgressBar;
 
     private UserViewModel userViewModel;
-    private LiveData<UserAndRole> ldLoggedUser;
+    private UserAndRole loggedUser;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -117,7 +117,22 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void login() {
-//        loginViewModel.login(getUserText(), getPasswordText());
+        userViewModel.login(getUserText(), getPasswordText()).observe(this, new Observer<UserAndRole>() {
+            @Override
+            public void onChanged(UserAndRole userAndRole) {
+                loadingProgressBar.setVisibility(View.GONE);
+                if ( userAndRole!=null) {
+                    Log.d(TAG, userAndRole.toString());
+                    updateLoggedInUser(userAndRole);
+                } else {
+                    Toast.makeText(LoginActivity.this, "User Not found", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void updateLoggedInUser(UserAndRole userAndRole) {
+        this.loggedUser = userAndRole;
     }
 
     private void observeLoginChange() {
