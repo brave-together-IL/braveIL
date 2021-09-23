@@ -20,14 +20,14 @@
         android:layout_gravity="center"
         android:rotationX="1"
         android:src="@drawable/userinconlogin"
-        app:layout_constraintBottom_toTopOf="@+id/username"
+        app:layout_constraintBottom_toTopOf="@+id/edittext_username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/thetoolbar" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/edittext_username"
         android:layout_width="309dp"
         android:layout_height="65dp"
         android:background="@drawable/shape_fields"
@@ -39,14 +39,14 @@
         android:padding="15dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/password"
+        app:layout_constraintBottom_toTopOf="@+id/edittext_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/edittext_password"
         android:layout_width="309dp"
         android:layout_height="65dp"
         android:background="@drawable/shape_fields"
@@ -64,7 +64,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toBottomOf="@+id/edittext_username" />
 
     <Button
         android:id="@+id/sendNewMod"
@@ -77,11 +77,11 @@
         android:text="@string/send"
         android:textColor="@color/white"
         android:textSize="17sp"
-        app:layout_constraintBottom_toTopOf="@+id/loading"
+        app:layout_constraintBottom_toTopOf="@+id/progressbar_loading"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_password"
         tools:ignore="UsingOnClickInXml" />
 
     <Button
@@ -98,7 +98,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loading" />
+        app:layout_constraintTop_toBottomOf="@+id/progressbar_loading" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -110,7 +110,7 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <ProgressBar
-        android:id="@+id/loading"
+        android:id="@+id/progressbar_loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

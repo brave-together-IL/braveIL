@@ -30,9 +30,9 @@ public class Register_moderator extends AppCompatActivity {
 
         client = new Client();
         registerMod = (Button) findViewById(R.id.sendNewMod);
-        EditText usernameEditText = findViewById(R.id.username);
-        EditText passwordEditText = findViewById(R.id.password);
-        ProgressBar loadingProgressBar = findViewById(R.id.loading);
+        EditText usernameEditText = findViewById(R.id.edittext_username);
+        EditText passwordEditText = findViewById(R.id.edittext_password);
+        ProgressBar loadingProgressBar = findViewById(R.id.progressbar_loading);
         registerMod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

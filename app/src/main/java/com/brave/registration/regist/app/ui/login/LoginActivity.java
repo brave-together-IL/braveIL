@@ -13,15 +13,12 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.preference.Preference;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -29,8 +26,6 @@ import android.widget.Toast;
 
 import com.brave.registration.regist.app.MainActivity;
 import com.brave.registration.regist.app.R;
-import com.brave.registration.regist.app.ui.login.LoginViewModel;
-import com.brave.registration.regist.app.ui.login.LoginViewModelFactory;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -45,10 +40,10 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
-        final EditText usernameEditText = findViewById(R.id.username);
-        final EditText passwordEditText = findViewById(R.id.password);
-        final Button loginButton = findViewById(R.id.login);
-        final ProgressBar loadingProgressBar = findViewById(R.id.loading);
+        final EditText usernameEditText = findViewById(R.id.edittext_username);
+        final EditText passwordEditText = findViewById(R.id.edittext_password);
+        final Button loginButton = findViewById(R.id.button_login);
+        final ProgressBar loadingProgressBar = findViewById(R.id.progressbar_loading);
 
 
         SharedPreferences preferences = getSharedPreferences("checkbox", MODE_PRIVATE);

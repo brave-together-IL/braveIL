@@ -13,7 +13,7 @@
     android:background="@drawable/blue_background">
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/edittext_username"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/edittext_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -44,15 +44,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:textColor="@color/editTextColor"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toBottomOf="@+id/edittext_username" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/button_login"
         android:layout_width="187dp"
         android:layout_height="63dp"
         android:layout_gravity="start"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="48dp"
         android:layout_marginBottom="64dp"
         android:background="#000000"
@@ -63,15 +63,15 @@
         app:backgroundTint="@color/main_turquoise"
         app:iconPadding="8dp"
         app:iconTint="#D8734F4F"
-        app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.46"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_password"
         app:layout_constraintVertical_bias="0.164" />
 
     <ProgressBar
-        android:id="@+id/loading"
+        android:id="@+id/progressbar_loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -81,25 +81,19 @@
         android:layout_marginBottom="64dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/password"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/password"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.632" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_login"
+        />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView_login"
         android:layout_width="198dp"
         android:layout_height="192dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="34dp"
-        android:layout_marginEnd="52dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.035"
+        android:layout_marginTop="40dp"
         app:srcCompat="@drawable/bravetogetherapp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
