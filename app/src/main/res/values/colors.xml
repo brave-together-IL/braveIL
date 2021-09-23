@@ -17,5 +17,6 @@
     <color name="main_blue_3">#334FED</color>
     <color name="toolbar_color">#2B5FFB</color>
     <color name="BackgroundWhiteColor">#FBFCFC</color>
+    <color name="editTextColor">#334fed</color>
 
 </resources>
