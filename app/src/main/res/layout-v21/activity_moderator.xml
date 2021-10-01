@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/blue_background"
-    tools:context=".admin.AdminActivity">
-<!-->TODO: add logout menu also here <-->
+    android:background="@drawable/blue_background">
+
     <include
         android:id="@+id/thetoolbar"
         layout="@layout/toolbar" />
+
 
     <ImageView
         android:id="@+id/imageView2"
@@ -19,10 +19,9 @@
         android:src="@drawable/bravetogetherapp"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/thetoolbar" />
-
 
     <Button
         android:id="@+id/add_user_btn"
@@ -31,51 +30,64 @@
         android:text="@string/add_new_users"
         android:textSize="18sp"
         app:backgroundTint="@color/main_turquoise"
-        app:layout_constraintBottom_toTopOf="@+id/assign_volunteer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <Button
-        android:id="@+id/assign_volunteer"
-        android:layout_width="255dp"
-        android:layout_height="60dp"
-        android:backgroundTint="@color/main_blue_1"
-        android:text="@string/assign_volunteer"
-        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/manage_volunteer_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_user_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Button
         android:id="@+id/manage_volunteer_btn"
         android:layout_width="255dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="76dp"
         android:text="@string/manage_users_btn"
         android:textSize="18sp"
         app:backgroundTint="@color/main_blue_3"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/assign_volunteer"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.519"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/assign_volunteer" />
+        app:layout_constraintTop_toBottomOf="@+id/add_user_btn" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="248dp"
         android:layout_height="37dp"
-        android:text="@string/admin_welcome_message"
+        android:text="@string/moderator_welcome_message"
         android:textColor="@color/gray_600"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
+    <Button
+        android:id="@+id/assign_volunteer"
+        android:layout_width="255dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="172dp"
+        android:backgroundTint="@color/main_blue_1"
+        android:text="@string/assign_volunteer"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left"
+        tools:layout_editor_absoluteX="411dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="665dp" />
 
     <TextView
         android:id="@+id/textView5"
@@ -84,11 +96,7 @@
         android:text="מה נעשה היום?"
         android:textColor="@color/gray_600"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/add_user_btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.71"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
+        tools:layout_editor_absoluteX="202dp"
+        tools:layout_editor_absoluteY="266dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,9 +7,10 @@
     <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:textSize">50sp</item>
     </style>
-    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+     <style name="Toolbar.TitleText." parent="Widget.AppCompat.Toolbar" >
     </style>
-    <attr name="dialogMessageStyle" format="reference"/>
+
+     <attr name="dialogMessageStyle" format="reference"/>
 
 
 

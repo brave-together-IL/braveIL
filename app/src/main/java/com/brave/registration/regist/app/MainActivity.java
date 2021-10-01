@@ -5,16 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import static com.brave.registration.regist.app.TelegramHandler.sendTelegramMessage;
@@ -26,7 +23,6 @@ import android.content.DialogInterface;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.brave.registration.regist.app.models.SignupUser;
 import com.brave.registration.regist.app.models.sessionManager;
 import com.brave.registration.regist.app.ui.login.LoginActivity;
 
@@ -39,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     static Client client;
     Toolbar toolbar;
 
-    // this class handle the dialogs in the hero's activity
+      // this class handle the dialogs in the hero's activity
     public static class HeroDialogs extends AppCompatDialogFragment {
 
         @NonNull
@@ -171,30 +167,27 @@ public class MainActivity extends AppCompatActivity {
                          }
                      });
               return true;
-          }
+            }
            @Override
            public boolean onOptionsItemSelected(@NonNull MenuItem item) {
                if (item.getItemId() == R.id.logout) {
                    sessionManager.logOut();
+                   Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                   intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                   startActivity(intent);
+                   finishAffinity();
                    return true;
                }
                return super.onOptionsItemSelected(item);
-
-               //  int id = item.getItemId();
-                //    if (id == R.id.logout) {
-                //     logout();
-                //       return true;
-                //     }
-                //     return super.onOptionsItemSelected(item);
-                //  }
-                //  private void logout() {
+           }
+                 //  private void logout() {
                 // client.logout();
                 //   Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 //    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 //    startActivity(intent);
                 //    finishAffinity();
                 //    }
-            }
+
     // this function operates the dialogs
     public void openDialog(String buttonType) {
         HeroDialogs heroDialogs = new HeroDialogs();

@@ -3,11 +3,10 @@
     android:id="@+id/thetoolbar"
     android:fitsSystemWindows="true"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="45dp"
     android:background="@color/toolbar_color"
-    android:padding="9dp"
-    android:orientation="vertical"
-    android:theme="@style/Theme.AppCompat.Light" >
+    android:padding="5dp"
+    android:orientation="vertical" >
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

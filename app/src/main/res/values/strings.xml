@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Brave Together</string>
     <!-- Strings related to login -->
     <string name="prompt_email">ID</string>
@@ -13,28 +13,35 @@
     <string name="green_b">green_b</string>
     <string name="yellow_b">yellow_b</string>
     <string name="resign">התנתקות</string>
-    <string name="phone_no">Phone no.</string>
+    <string name="phone_no">טלפון</string>
     <string name="id">ID</string>
     <string name="first_fragment_label">frag</string>
     <string name="idlogin">תעודת זהות</string>
     <string name="bdate">תאריך לידה</string>
 
     <!-- Strings related to admin -->
-    <string name="back_to_menu">חזרה לתפריט ראשי</string>
-    <string name="add_volunteer">הוספת מתנדב</string>
+      <string name="back_to_menu">חזרה לתפריט ראשי</string>
+    <string name="assign_volunteer">שיוך מתנדבים</string>
     <string name="admin_welcome_message">שלום, Admin</string>
-    <string name="add_survivor">הזנת גיבור/ה חדש/ה</string>
+    <string name="moderator_welcome_message">שלום, Moderator</string>
+    <string name="add_new_users">הוספת משתמש</string>
     <string name="id_hero">Id hero</string>
     <string name="braveil">BraveIL - מצעד הגבורה</string>
-    <string name="manage_volunteer_btn">ניהול רשימת מתנדבים</string>
-    <string name="add_moderators">הוספת מודרייטורים</string>
+    <string name="manage_users_btn">ניהול רשימת משתמשים</string>
     <string name="title_activity_admin">Admin</string>
     <string name="second_fragment_label">frag</string>
-    <string name="password">password</string>
-    <string name="name">name</string>
+    <string name="add_moderator">הוספת מודרייטור</string>
     <string name="send">הוספת מודרייטור</string>
     <string name="username">שם משתמש</string>
     <string name="new_mod">יצירת מודרייטור חדש</string>
+    <string name="city">עיר מגורים</string>
+    <string name="password">סיסמא</string>
+    <string-array name="user_type">
+        <item>admin</item>
+        <item>moderator</item>
+        <item>survivor</item>
+        <item>volunteer</item>
+    </string-array>
     <string name="logout">התנתקות</string>
 
     <!--dialog strings-->
@@ -44,5 +51,7 @@
     <string name="delivery">איסוף מוצר,לאסוף עבורך תרופות/מצרכים ועוד..,delivery</string>
     <string name="dialogMessage">תוכל/י לבקש מאחד המתנדבים %1$s\nהאם תרצה/י %2$s?</string>
     <string name="botMessage">שלום מתנדבים יקרים!\n התקבלה בקשה ל%1$s.\nאם את/ה יכול/ה, נא לחץ/י על אישור וצור/צרי קשר עם הגיבור/ה בנייד: %2$s</string>
+    <string name="register_image">register_image</string>
+
 
 </resources>

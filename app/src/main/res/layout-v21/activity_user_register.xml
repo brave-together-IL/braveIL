@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background2">
+
+    <include
+        android:id="@+id/thetoolbar"
+        layout="@layout/toolbar" />
+
+
+    <ImageView
+        android:id="@+id/ic_user"
+        android:layout_width="280dp"
+        android:layout_height="72dp"
+        android:rotationX="1"
+        android:src="@drawable/userinconlogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/thetoolbar"
+        android:contentDescription=""
+        tools:ignore="ContentDescription" />
+
+    <EditText
+        android:id="@+id/user_name_input"
+        android:layout_width="256dp"
+        android:layout_height="48dp"
+        android:background="@drawable/shape_fields"
+        android:hint="@string/username"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        app:drawableRightCompat="@drawable/user_icon"
+        app:layout_constraintBottom_toTopOf="@+id/city_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ic_user"
+        android:autofillHints="name"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/user_id_input"
+        android:layout_width="256dp"
+        android:layout_height="48dp"
+        android:background="@drawable/shape_fields"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="@string/idlogin"
+        android:padding="10dp"
+        app:drawableRightCompat="@drawable/id_icon"
+        app:layout_constraintBottom_toTopOf="@+id/password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_birthday"
+        android:autofillHints=""
+        android:inputType="number" />
+
+
+    <EditText
+        android:id="@+id/city_input"
+        android:layout_width="256dp"
+        android:layout_height="48dp"
+        android:background="@drawable/shape_fields"
+        android:ems="10"
+        android:hint="@string/city"
+        android:padding="10dp"
+        app:drawableRightCompat="@drawable/pin"
+        app:layout_constraintBottom_toTopOf="@+id/user_birthday"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_name_input"
+        android:autofillHints=""
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/user_birthday"
+        android:layout_width="256dp"
+        android:layout_height="48dp"
+        android:background="@drawable/shape_fields"
+        android:ems="10"
+        android:hint="@string/bdate"
+        android:padding="10dp"
+        app:drawableRightCompat="@drawable/birthday_icon"
+        app:layout_constraintBottom_toTopOf="@+id/user_id_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/city_input"
+        android:autofillHints="birthdate"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="256dp"
+        android:layout_height="48dp"
+        android:autofillHints="password"
+        android:background="@drawable/shape_fields"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        app:drawableEndCompat="@drawable/lock"
+        app:layout_constraintBottom_toTopOf="@+id/phone_no"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_id_input" />
+
+
+    <EditText
+        android:id="@+id/phone_no"
+        android:layout_width="256dp"
+        android:layout_height="48dp"
+        android:autofillHints="phone"
+        android:background="@drawable/shape_fields"
+        android:drawablePadding="5dp"
+        android:ems="10"
+        android:hint="@string/phone_no"
+        android:inputType="phone"
+        android:padding="10dp"
+        app:drawableEndCompat="@drawable/smartphone_icon"
+        app:layout_constraintBottom_toTopOf="@+id/user_type"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
+
+
+    <Spinner
+        android:id="@+id/user_type"
+        android:layout_width="256dp"
+        android:layout_height="48dp"
+        android:background="@drawable/shape_fields"
+        android:ems="10"
+        android:padding="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/send_new_user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone_no"
+        tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/send_new_user"
+        android:layout_width="258dp"
+        android:layout_height="48dp"
+        android:background="@drawable/shape_buttons"
+        android:text="@string/add_new_users"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:backgroundTint="#207CAE"
+        app:layout_constraintBottom_toTopOf="@+id/btn_back_home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_type" />
+
+    <Button
+        android:id="@+id/btn_back_home"
+        android:layout_width="180dp"
+        android:layout_height="48dp"
+        android:background="@drawable/shape_buttons"
+
+        android:text="@string/back_to_menu"
+        android:textColor="#FFF"
+        android:textSize="16sp"
+        app:backgroundTint="#3F51B5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/send_new_user"
+        android:onClick="back_homepage"
+        tools:ignore="UsingOnClickInXml" />
+
+    <ImageView
+        android:id="@+id/register_image"
+        android:layout_width="280dp"
+        android:layout_height="72dp"
+        android:rotationX="1"
+        android:src="@drawable/userinconlogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/thetoolbar"
+        android:contentDescription="@string/register_image" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

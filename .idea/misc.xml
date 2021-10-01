@@ -17,6 +17,9 @@
         <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/font-v26/verela.xml" value="0.23541666666666666" />
         <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/font/pfennig.xml" value="0.24322916666666666" />
         <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/font/verela.xml" value="0.23541666666666666" />
+        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout-v21/activity_mod.xml" value="0.264" />
+        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout-v21/activity_moderator.xml" value="0.2703125" />
+        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout-v21/activity_user_register.xml" value="0.264" />
         <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout-v21/tool.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout-v21/toolbar.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout-v21/toolbar1.xml" value="0.2234375" />
@@ -26,6 +29,8 @@
         <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout/activity_main.xml" value="0.26666666666666666" />
         <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout/activity_moderator.xml" value="0.264" />
         <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout/activity_register_admin.xml" value="0.35546875" />
+        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout/activity_register_users.xml" value="0.17447916666666666" />
+        <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout/activity_users_register.xml" value="0.2" />
         <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout/app_toolbar.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout/fragment_first.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/mizuk/AndroidStudioProjects/braveIL/app/src/main/res/layout/fragment_second.xml" value="0.24427083333333333" />

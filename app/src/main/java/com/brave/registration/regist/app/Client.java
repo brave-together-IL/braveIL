@@ -1,9 +1,8 @@
 package com.brave.registration.regist.app;
 
 import java.io.IOException;
-
 import okhttp3.*;
-
+//import java.awt.*;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -164,7 +163,21 @@ public class Client {
         return response.body().string();
     }
 
-//    public boolean getNEventsByIDs() throws IOException{
+//    public JSONObject getEventByID(String id) throws IOException {
+//        String url = "http://localhost:5000/events/"+id;
+
+//        Request request = new Request.Builder()
+//        Event event = service.events().get('primary', "eventId").execute(); //.events("AAMkADAGAADDdm4NAAA=")
+//                .url(url)
+//                .buildRequest( requestOptions )
+//                .header("Content-Type", "application/json")
+//                .get(payload)
+//                .build();
+//        return new JSONObject(this.httpClient.newCall(request).execute().body().string());
+
+
+
+    //    public boolean getNEventsByIDs() throws IOException{
 //       /*curl http://host_address.com/events?ids=<`ID_1`>,<`ID_2`>,...,<`ID_n`>*/
 //
 //        return ;

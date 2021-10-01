@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class Register_moderator extends AppCompatActivity {
-    Button registerMod;
+    Button registerUser;
     Client client;
     User moderator;
     TextInputLayout passwordEditText;
@@ -26,14 +26,15 @@ public class Register_moderator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_moderator);
+        /* TODO: create a register activity for moderator (same as admin without the ability to create admins/moderators), create class, move content there */
         Client moderator = new Client();
 
         client = new Client();
-        registerMod = (Button) findViewById(R.id.sendNewMod);
+        registerUser = (Button) findViewById(R.id.send_new_user);
         EditText usernameEditText = findViewById(R.id.edittext_username);
         EditText passwordEditText = findViewById(R.id.edittext_password);
         ProgressBar loadingProgressBar = findViewById(R.id.progressbar_loading);
-        registerMod.setOnClickListener(new View.OnClickListener() {
+        registerUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loadingProgressBar.setVisibility(View.VISIBLE);

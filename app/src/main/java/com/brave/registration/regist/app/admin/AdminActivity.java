@@ -5,43 +5,35 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 
 import com.brave.registration.regist.app.R;
 
 public class AdminActivity extends AppCompatActivity {
-
+    Button add_user_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
 
-        final Button add_survivor = (Button) findViewById(R.id.survivor_btn);
-        add_survivor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                add_survivor();
-            }
-        });
-        final Button add_moderators = (Button) findViewById(R.id.moderator_btn);
-        add_moderators.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                add_moderators();
-            }
-        });
 
+       add_user_btn = (Button) findViewById(R.id.add_user_btn);
+       add_user_btn.setOnClickListener(new View.OnClickListener() {
+       @Override
+            public void onClick(View v){
+                add_new_users();
+            }
+       });
     }
 
-    private void add_survivor() {
-        Intent intent = new Intent(this, Register_admin.class);
+    public void add_new_users(){
+        Intent intent = new Intent(this, Users_register_admin.class);
         startActivity(intent);
     }
 
 
-    private void add_moderators() {
-        Intent intent = new Intent(this, Register_moderator.class);
-        startActivity(intent);
-    }
 
 }
